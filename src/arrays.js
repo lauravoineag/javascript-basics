@@ -1,61 +1,78 @@
 const getNthElement = (index, array) => {
-  // your code here
+  if (index > array.length - 1) {
+    return array[index % array.length];
+  } else {
+  return array[index];
+  }
 };
 
 const arrayToCSVString = array => {
-  // your code here
+  let result = "";
+  for (let i = 0; i < array.length; i++){
+    result += array[i];
+    if(i<array.length-1){
+      result+=",";
+    }
+  }
+  return result;
 };
 
 const csvStringToArray = string => {
-  // your code here
+  return string.split(",");
 };
 
 const addToArray = (element, array) => {
-  // your code here
+  array.push(element);
+  
 };
 
 const addToArray2 = (element, array) => {
-  // your code here
+  let newArray = array.concat(element);
+  return newArray;
 };
 
 const removeNthElement = (index, array) => {
-  // your code here
+  array.splice(index,1);
+  return array;
 };
 
 const numbersToStrings = numbers => {
-  // your code here
+  return numbers.map(element => element + "");
 };
 
 const uppercaseWordsInArray = strings => {
-  // your code here
+  return strings.map(element => element.toUpperCase());
 };
 
 const reverseWordsInArray = strings => {
-  // your code here
+  return strings.map(element => element.split('').reverse().join(''));
 };
 
 const onlyEven = numbers => {
-  // your code here
+  return numbers.filter(element => element % 2 === 0);
 };
 
 const removeNthElement2 = (index, array) => {
-  // your code here
+  let number = array[index]
+  return array.filter(element=> element !== number);
 };
 
 const elementsStartingWithAVowel = strings => {
-  // your code here
+  let rex = /^[aeiou]/i;
+  let results = strings.filter(element => rex.test(element));
+  return results; 
 };
 
 const removeSpaces = string => {
-  // your code here
+  return string.replace(/\s/g, '');
 };
 
 const sumNumbers = numbers => {
-  // your code here
+  return numbers.reduce((acc,element)=> acc+element);
 };
 
 const sortByLastLetter = strings => {
-  // your code here
+  return strings.sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1));
 };
 
 module.exports = {
